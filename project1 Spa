@@ -1,1 +1,39 @@
+clc
+clear all
+close all
+
+
+f = fred
+startdate = '01/01/1995';
+enddate = '10/01/2022';
+
+d1 = fetch(f,'CLVMNACSCAB1GQES',startdate,enddate)
+d2 = fetch(f,'JPNRGDPEXP',startdate,enddate)
+
+q = d1.Data(:,1);
+
+sy = d1.Data(:,2);
+jy = d2.Data(:,2);
+
+%[trend, cycle] = hpfilter(log(y), 1600);
+[cyclesy, trendsy] = qmacro_hpfilter(log(sy), 1600);
+[cyclejy, trendjy] = qmacro_hpfilter(log(jy), 1600);
+
+% compute sd(y) (from detrended series)
+sysd = std(cyclesy)*100;
+jysd = std(cyclejy)*100;
+
+corrcoef(cyclesy,cyclejy)
+
+disp(['Percent standard deviation of detrended log real GDP: ', num2str(sysd),'.']); disp(' ')
+disp(['Percent standard deviation of detrended log real GDP: ', num2str(jysd),'.']); disp(' ')
+plot(q, cyclesy,q, cyclejy)
+datetick('x','yyyy-qq')
+title('spain japan')
+ylabel('log of real GDP')
+xlabel('Time')
+legend('spain','japan')
+grid on
+
+
 
