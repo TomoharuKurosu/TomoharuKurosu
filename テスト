@@ -1,0 +1,76 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMGTF7RFxG2x4oWQLXe+pBD",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/TomoharuKurosu/TomoharuKurosu/blob/main/%E3%83%86%E3%82%B9%E3%83%88\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 147
+        },
+        "id": "ttHOYe8yG2-G",
+        "outputId": "654047c6-168b-4a3e-b568-f568967dd9f7"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-5-54d44f7e91e2>\"\u001b[0;36m, line \u001b[0;32m22\u001b[0m\n\u001b[0;31m    ./myApp < input.in\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+          ]
+        }
+      ],
+      "source": [
+        "def main(lines):\n",
+        "    # このコードは標準入力と標準出力を用いたサンプルコードです。\n",
+        "    # このコードは好きなように編集・削除してもらって構いません。\n",
+        "    # ---\n",
+        "    # This is a sample code to use stdin and stdout.\n",
+        "    # Edit and remove this code as you like.\n",
+        "    for i, v in enumerate(lines):\n",
+        "        #print(\"line[{0}]: {1}\".format(i, v))\n",
+        "        if(i==0): #1行目は数字の要素数 n\n",
+        "          n, age = list(map(int, v.split(\" \")))\n",
+        "        elif(i==1):\n",
+        "          value = list(map(int, v.split(\" \")))\n",
+        "    print(age)\n",
+        "    print(value)\n",
+        "\n",
+        "if __name__ == '__main__':\n",
+        "    lines = []\n",
+        "    for l in sys.stdin:\n",
+        "        lines.append(l.rstrip('\\r\\n'))\n",
+        "    main(lines)\n",
+        "\n",
+        "    ./myApp < input.in"
+      ]
+    }
+  ]
+}
